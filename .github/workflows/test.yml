@@ -9,5 +9,5 @@ jobs:
         id: test
         uses: monun-docs/auto-contrib@v1.0
         with:
-          gh_token: ${{ secrets.TOKEN }}
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
           repo: monun-docs/auto-contrib
