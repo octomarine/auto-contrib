@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  hello_world_ob:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello-siras
+        uses: dolphin2410/monun-docs-app@v1.0
+        with:
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
+          repo: dolphin2410/monun-docs-app
