@@ -80,11 +80,13 @@ async function run() {
             let filtered = contributors.filter(i => !exclude.includes(i.login) || include.includes(i.login))
             
             filtered.forEach(contributor => {
-                tag.innerHTML += `- [${contributor.login}](${contributor.html_url})`
+                tag.innerHTML += `- [${contributor.login}](${contributor.html_url})\n`
             })
         })
-
         let newREADME = Base64.encode(jsdom.window.document.body?.innerHTML)
+        if (newREADME == readme.response.content) {
+            return
+        }
         await octokit.rest.repos.createOrUpdateFileContents({
             owner: repo.owner,
             repo: repo.repo,
